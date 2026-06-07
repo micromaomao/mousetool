@@ -166,6 +166,7 @@ unsafe extern "system" fn wnd_proc(
                             };
                             input.u.mi_mut().dwFlags = MOUSEEVENTF_LEFTUP;
                             SendInput(1, &mut input, mem::size_of_val(&input) as _);
+                            println!("Up");
                             DestroyWindow(hwnd);
                             return 0;
                         }
@@ -191,6 +192,7 @@ unsafe extern "system" fn wnd_proc(
                                 };
                                 input.u.mi_mut().dwFlags = MOUSEEVENTF_LEFTDOWN;
                                 SendInput(1, &mut input, mem::size_of_val(&input) as _);
+                                println!("Down");
                                 state.needUp = true;
                                 SetTimer(
                                     hwnd,
