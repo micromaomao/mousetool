@@ -357,7 +357,7 @@ enum Subcmd {
         #[arg(short = 'r', long)]
         relative_to_win: bool,
         #[arg(short = 'c', long)]
-        need_click: bool,
+        click: bool,
     },
     #[command(subcommand = "train")]
     Train,
@@ -405,7 +405,7 @@ fn main() {
                 x,
                 y,
                 relative_to_win,
-                need_click,
+                click,
             } => {
                 state.boxPos.w = 20;
                 state.boxPos.h = 20;
@@ -437,7 +437,7 @@ fn main() {
                     from_pos.x, from_pos.y, to_pos.x, to_pos.y
                 );
                 findBestTrail(from_pos, to_pos);
-                state.needClick = need_click;
+                state.needClick = click;
             }
         }
 
